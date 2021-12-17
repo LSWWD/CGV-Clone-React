@@ -1,7 +1,9 @@
 const Container = () => {
   return (
     <div>
-      <h1>Container</h1>
+      <div className="event-container">
+        <div clssName="event-container__slide"></div>
+      </div>
     </div>
   );
 };
