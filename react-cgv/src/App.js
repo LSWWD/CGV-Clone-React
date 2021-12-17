@@ -1,7 +1,9 @@
+import Event from "./component/insu";
+
 function App() {
   return (
     <div>
-      <h1>CGV</h1>
+      <Event />
     </div>
   );
 }
