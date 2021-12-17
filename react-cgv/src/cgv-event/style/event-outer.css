@@ -1,0 +1,40 @@
+.event {
+  width: 100%;
+  height: 394px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: wheat;
+}
+
+.event__box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1020px;
+  height: 328px;
+  background-color: rgb(187, 166, 207);
+}
+
+.event__box #left-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  color: #727272;
+}
+.event__box #right-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  color: #727272;
+}
+
+.event__box > button {
+  cursor: pointer;
+}
+
+.event__box__outer {
+  width: 980px;
+  height: 328px;
+  background-color: cornflowerblue;
+}

@@ -1,4 +1,4 @@
-import Event from "./component/insu";
+import Event from "./cgv-event/Insu";
 
 function App() {
   return (
