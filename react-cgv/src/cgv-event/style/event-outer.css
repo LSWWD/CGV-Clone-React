@@ -31,6 +31,7 @@
 
 .event__box > button {
   cursor: pointer;
+  box-shadow: 0.5px 1.5px 1.5px 1px rgb(129, 128, 128);
 }
 
 .event__box__outer {

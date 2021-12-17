@@ -7,18 +7,20 @@ import { FaLessThan, FaGreaterThan } from "react-icons/fa";
 
 const Event = () => {
   return (
-    <div className="event">
-      <div className="event__box">
-        <button id="left-btn">
-          <FaLessThan />
-        </button>
-        <div className="event__box__outer">
-          <Header />
-          <Container />
+    <div>
+      <div className="event">
+        <div className="event__box">
+          <button id="left-btn">
+            <FaLessThan />
+          </button>
+          <div className="event__box__outer">
+            <Header />
+            <Container />
+          </div>
+          <button id="right-btn">
+            <FaGreaterThan />
+          </button>
         </div>
-        <button id="right-btn">
-          <FaGreaterThan />
-        </button>
       </div>
     </div>
   );
