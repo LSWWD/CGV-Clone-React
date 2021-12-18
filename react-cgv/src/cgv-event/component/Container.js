@@ -1,8 +1,22 @@
-const Container = () => {
+const Container = ({ movies }) => {
   return (
     <div>
       <div className="event-container">
-        <div clssName="event-container__slide"></div>
+        <div className="event-container__slide">
+          <div className="event-container__outer">
+            {movies.map((movie) => (
+              <div key={movie.id} className="event-container__box">
+                <div className="event-container__box--img">
+                  <img src={movie.src} alt={movie.position} />
+                </div>
+                <div className="event-container__box--text">
+                  <span>{movie.text}</span>
+                  <span>{movie.date}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
