@@ -42,5 +42,19 @@
   width: 980px;
   height: 328px;
   background-color: cornflowerblue;
+  overflow-x: hidden;
   margin-left: 20px;
+}
+
+.event-container {
+  width: 100%;
+  height: 272px;
+  background-color: cadetblue;
+  margin-top: 15px;
+  overflow: hidden;
+}
+
+.event-container__slide {
+  height: 100%;
+  transition: margin-left 0.5s ease-in;
 }

@@ -1,15 +1,3 @@
-.event-container {
-  width: 980px;
-  height: 272px;
-  background-color: cadetblue;
-  margin-top: 15px;
-}
-
-.event-container__slide {
-  height: 100%;
-  overflow-x: hidden;
-  transition: margin-left 0.5s ease-in;
-}
 .event-container__outer {
   display: flex;
   width: 980px;
@@ -43,6 +31,8 @@
 .event-container__box--text {
   margin-left: 5px;
   margin-top: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .event-container__box--text > span:nth-child(1) {
@@ -50,6 +40,7 @@
 }
 
 .event-container__box--text > span:nth-child(2) {
+  margin-top: 10px;
   font-size: 0.8rem;
   font-weight: bold;
   opacity: 0.5;
