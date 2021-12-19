@@ -1,7 +1,14 @@
 import { FiPauseCircle } from "react-icons/fi";
 import { FaGreaterThan } from "react-icons/fa";
+import { AiOutlinePlayCircle } from "react-icons/ai";
+import { useState } from "react";
 
-const Header = () => {
+const Header = ({ stop }) => {
+  const [toggle, setToggle] = useState(true);
+  const onClick = () => {
+    setToggle((toggle) => !toggle);
+  };
+
   return (
     <div>
       <div className="event-header">
@@ -9,10 +16,14 @@ const Header = () => {
           <span>EVENT</span>
         </div>
         <div className="event-header__btn">
-          <button>
-            <FiPauseCircle />
+          <button className="stop-btn" onClick={onClick}>
+            {toggle === true ? (
+              <FiPauseCircle onClick={stop} />
+            ) : (
+              <AiOutlinePlayCircle onClick={stop} />
+            )}
           </button>
-          <button>
+          <button className="text-btn">
             <span>전체보기</span>
             <FaGreaterThan />
           </button>

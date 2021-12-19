@@ -4,7 +4,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: wheat;
 }
 
 .event__box {
@@ -13,7 +12,6 @@
   align-items: center;
   width: 1020px;
   height: 328px;
-  background-color: rgb(187, 166, 207);
   position: relative;
 }
 
@@ -41,7 +39,6 @@
 .event__box__outer {
   width: 980px;
   height: 328px;
-  background-color: cornflowerblue;
   overflow-x: hidden;
   margin-left: 20px;
 }
@@ -49,7 +46,6 @@
 .event-container {
   width: 100%;
   height: 272px;
-  background-color: cadetblue;
   margin-top: 15px;
   overflow: hidden;
 }

@@ -9,25 +9,51 @@ import { useState, useEffect, useRef } from "react";
 
 const Event = () => {
   const [movies, setMovies] = useState([]);
+  const sliderWidth = 1005;
+  let toggle = true;
   let boxIndex = 0;
   useEffect(() => {
     setMovies(movieList.movies);
   }, []);
+
+  // DOM 불러오기
+  const slide = useRef();
+
+  // 오른쪽 버튼
   const onRightClick = () => {
-    console.log("Click");
     boxIndex++;
     boxIndex = boxIndex >= movies.length / 3 ? boxIndex - 1 : boxIndex;
-    slide.current.style.marginLeft = `-${1005 * boxIndex}px`;
+    slide.current.style.marginLeft = `-${sliderWidth * boxIndex}px`;
+    clearInterval(interval);
   };
-
+  // 왼쪽 버튼
   const onLeftClick = () => {
     console.log("Click");
     boxIndex--;
     boxIndex = boxIndex < 0 ? 0 : boxIndex;
-    slide.current.style.marginLeft = `-${1005 * boxIndex}px`;
+    slide.current.style.marginLeft = `-${sliderWidth * boxIndex}px`;
   };
 
-  const slide = useRef(null);
+  const onStop = () => {
+    toggle = !toggle;
+    console.log(toggle);
+    if (toggle === false) {
+      clearInterval(interval);
+    } else {
+      clearInterval(interval);
+      interval = repeat();
+    }
+  };
+
+  // 인터벌로 반복할 함수
+  let repeat = () =>
+    setInterval(() => {
+      boxIndex++;
+      boxIndex = boxIndex >= movies.length / 3 ? 0 : boxIndex;
+      slide.current.style.marginLeft = `-${sliderWidth * boxIndex}px`;
+    }, 3000);
+  let interval = repeat();
+  clearInterval(interval);
 
   return (
     <div>
@@ -36,8 +62,9 @@ const Event = () => {
           <button id="left-btn" onClick={onLeftClick}>
             <FaLessThan />
           </button>
+
           <div className="event__box__outer">
-            <Header />
+            <Header stop={onStop} toggle={toggle} />
             <div className="event-container">
               <div className="event-container__slide" ref={slide}>
                 <div>
