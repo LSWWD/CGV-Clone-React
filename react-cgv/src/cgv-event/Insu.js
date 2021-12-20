@@ -15,16 +15,16 @@ const Event = () => {
   useEffect(() => {
     setMovies(movieList.movies);
   }, []);
-
   // DOM 불러오기
   const slide = useRef();
+  const leftBtn = useRef();
+  const rightBtn = useRef();
 
   // 오른쪽 버튼
   const onRightClick = () => {
     boxIndex++;
     boxIndex = boxIndex >= movies.length / 3 ? boxIndex - 1 : boxIndex;
     slide.current.style.marginLeft = `-${sliderWidth * boxIndex}px`;
-    clearInterval(interval);
   };
   // 왼쪽 버튼
   const onLeftClick = () => {
@@ -38,28 +38,25 @@ const Event = () => {
     toggle = !toggle;
     console.log(toggle);
     if (toggle === false) {
-      clearInterval(interval);
+      slide.current.style.animationPlayState = "paused";
+      slide.current.style.animation = "none";
+      leftBtn.current.style.visibility = "visible";
+      rightBtn.current.style.visibility = "visible";
     } else {
-      clearInterval(interval);
-      interval = repeat();
+      slide.current.style.animationPlayState = "running";
+      slide.current.style.animation = "makeRoll 10s ease-in";
+      leftBtn.current.style.visibility = "hidden";
+      rightBtn.current.style.visibility = "hidden";
     }
   };
 
   // 인터벌로 반복할 함수
-  let repeat = () =>
-    setInterval(() => {
-      boxIndex++;
-      boxIndex = boxIndex >= movies.length / 3 ? 0 : boxIndex;
-      slide.current.style.marginLeft = `-${sliderWidth * boxIndex}px`;
-    }, 3000);
-  let interval = repeat();
-  clearInterval(interval);
 
   return (
     <div>
       <div className="event">
         <div className="event__box">
-          <button id="left-btn" onClick={onLeftClick}>
+          <button id="left-btn" onClick={onLeftClick} ref={leftBtn}>
             <FaLessThan />
           </button>
 
@@ -73,7 +70,7 @@ const Event = () => {
               </div>
             </div>
           </div>
-          <button id="right-btn" onClick={onRightClick}>
+          <button id="right-btn" onClick={onRightClick} ref={rightBtn}>
             <FaGreaterThan />
           </button>
         </div>

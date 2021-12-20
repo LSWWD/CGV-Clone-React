@@ -21,6 +21,8 @@
   border-radius: 20px;
   color: #727272;
   position: absolute;
+  z-index: 2;
+  visibility: hidden;
 }
 .event__box #right-btn {
   width: 40px;
@@ -29,6 +31,7 @@
   color: #727272;
   position: absolute;
   right: 0;
+  visibility: hidden;
 }
 
 .event__box > button {
@@ -53,4 +56,38 @@
 .event-container__slide {
   height: 100%;
   transition: margin-left 0.5s ease-in;
+  animation: makeRoll 10s ease-in;
+  animation-iteration-count: infinite;
+  animation-delay: 2s;
+  animation-play-state: running;
+}
+
+@keyframes makeRoll {
+  0% {
+    transform: translateX(0px);
+  }
+  5% {
+    transform: translateX(0px);
+  }
+  20% {
+    transform: translateX(-1005px);
+  }
+  30% {
+    transform: translateX(-1005px);
+  }
+  50% {
+    transform: translateX(-2010px);
+  }
+  60% {
+    transform: translateX(-2010px);
+  }
+  80% {
+    transform: translateX(-3015px);
+  }
+  90% {
+    transform: translateX(-3015px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
 }
